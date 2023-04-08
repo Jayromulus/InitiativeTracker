@@ -1,41 +1,54 @@
 import update from 'immutability-helper'
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { Card } from './Card.js'
-const style = {
-  width: 400,
-}
-export const Container = () => {
+
+const Container = () => {
   {
-    const [cards, setCards] = useState([
-      {
-        id: 1,
-        text: 'Jerry',
-      },
-      {
-        id: 2,
-        text: 'Tom',
-      },
-      {
-        id: 3,
-        text: 'James',
-      },
-      {
-        id: 4,
-        text: 'Marcus',
-      },
-      {
-        id: 5,
-        text: 'Leland',
-      },
-      {
-        id: 6,
-        text: 'John'
-      },
-      {
-        id: 7,
-        text: 'DM',
-      },
-    ])
+    const [cards, setCards] = useState()
+    const [updateList, setUpdateList] = useState(false);
+
+    useEffect(() => {
+      console.log('lcalstorage',localStorage.getItem('Cards'));
+      if (localStorage.getItem('Cards') !== 'undefined') {
+        setCards(JSON.parse(localStorage.getItem('Cards')));
+      } else {
+        setCards([
+          {
+            id: 1,
+            text: 'Jerry',
+          },
+          {
+            id: 2,
+            text: 'Tom',
+          },
+          {
+            id: 3,
+            text: 'James',
+          },
+          {
+            id: 4,
+            text: 'Marcus',
+          },
+          {
+            id: 5,
+            text: 'Leland',
+          },
+          {
+            id: 6,
+            text: 'John'
+          },
+          {
+            id: 7,
+            text: 'Brian (DM)',
+          },
+        ])
+      }
+    }, []);
+
+    useEffect(() => {
+      localStorage.setItem('Cards', JSON.stringify(cards));
+    }, [cards])
+
     const moveCard = useCallback((dragIndex, hoverIndex) => {
       setCards((prevCards) =>
         update(prevCards, {
@@ -45,6 +58,7 @@ export const Container = () => {
           ],
         }),
       )
+      setUpdateList(true);
     }, [])
     const renderCard = useCallback((card, index) => {
       return (
@@ -59,7 +73,7 @@ export const Container = () => {
     }, [])
     return (
       <>
-        <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
+        <div className="w-full md:w-3/4 lg:w-1/2 m-auto mt-2">{cards?.map((card, i) => renderCard(card, i))}</div>
       </>
     )
   }

@@ -4,7 +4,7 @@ let ItemTypes = {
   CARD: 'card',
 }
 const style = {
-  border: '1px dashed gray',
+  // border: '1px dashed gray',
   padding: '0.5rem 1rem',
   marginBottom: '.5rem',
   backgroundColor: 'white',
@@ -62,6 +62,7 @@ export const Card = ({ id, text, index, moveCard }) => {
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.CARD,
     item: () => {
+      console.log(id, index)
       return { id, index }
     },
     collect: (monitor) => ({
@@ -71,14 +72,16 @@ export const Card = ({ id, text, index, moveCard }) => {
   const opacity = isDragging ? 0 : 1
   drag(drop(ref))
   return (
-    <div class="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
-      <div class="col-span-5">
+    <div className="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
+      <div className="col-span-5">
         {text}
       </div>
-      <div class="space-y-2 col-span-1 items-end">
-        <span class="block w-8 h-1 bg-gray-600"></span>
-        <span class="block w-8 h-1 bg-gray-600"></span>
-        <span class="block w-8 h-1 bg-gray-600"></span>
+      <div className="flex  col-span-1">
+        <div className="space-y-2 ml-auto">
+          <span className="block w-8 h-0.5 rounded bg-gray-600"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600"></span>
+        </div>
       </div>
     </div>
   )
