@@ -11,7 +11,8 @@ const style = {
   color: 'black',
   cursor: 'move',
 }
-export const Card = ({ id, text, index, moveCard }) => {
+
+const Card = ({ id, text, index, moveCard }) => {
   const ref = useRef(null)
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.CARD,
@@ -62,7 +63,7 @@ export const Card = ({ id, text, index, moveCard }) => {
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.CARD,
     item: () => {
-      console.log(id, index)
+      // console.log(id, index)
       return { id, index }
     },
     collect: (monitor) => ({
@@ -76,11 +77,11 @@ export const Card = ({ id, text, index, moveCard }) => {
       <div className="col-span-5">
         {text}
       </div>
-      <div className="flex  col-span-1">
+      <div className="flex  col-span-1 pt-0.5">
         <div className="space-y-2 ml-auto">
-          <span className="block w-8 h-0.5 rounded bg-gray-600"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
         </div>
       </div>
     </div>

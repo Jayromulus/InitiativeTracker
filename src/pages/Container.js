@@ -1,55 +1,48 @@
 import update from 'immutability-helper'
 import { useCallback, useState, useEffect } from 'react'
-import { Card } from './Card.js'
+import Card from './Card.js'
 
-const Container = () => {
+const Container = ({ cards, setCards, setUpdateList }) => {
   {
-    const [cards, setCards] = useState()
-    const [updateList, setUpdateList] = useState(false);
+    // const [cards, setCards] = useState()
+    // const [updateList, setUpdateList] = useState(false);
+    // const [readSession, setReadSession] = useState(true);
 
-    useEffect(() => {
-      console.log('lcalstorage',localStorage.getItem('Cards'));
-      if (localStorage.getItem('Cards') !== 'undefined') {
-        setCards(JSON.parse(localStorage.getItem('Cards')));
-      } else {
-        setCards([
-          {
-            id: 1,
-            text: 'Jerry',
-          },
-          {
-            id: 2,
-            text: 'Tom',
-          },
-          {
-            id: 3,
-            text: 'James',
-          },
-          {
-            id: 4,
-            text: 'Marcus',
-          },
-          {
-            id: 5,
-            text: 'Leland',
-          },
-          {
-            id: 6,
-            text: 'John'
-          },
-          {
-            id: 7,
-            text: 'Brian (DM)',
-          },
-        ])
-      }
-    }, []);
+    // const readSessionData = () => {
+    //   if (readSession) {
+    //     let cookie = localStorage.getItem('CardList');
+    //     // console.log('cookie', cookie !== 'undefined');
+    //     if (cookie !== 'undefined') {
+    //       // console.log('parse session');
+    //       setCards(JSON.parse(cookie));
+    //     } else {
+    //       setCards(baseCards);
+    //       // console.log('using base session');
+    //     }
+    //     setReadSession(false);
+    //   } else {
+    //     return;
+    //   }
+    // }
 
-    useEffect(() => {
-      localStorage.setItem('Cards', JSON.stringify(cards));
-    }, [cards])
+    // // read the cookie from browser
+    // useEffect(() => {
+    //   readSessionData()
+    // }, []);
 
-    const moveCard = useCallback((dragIndex, hoverIndex) => {
+    // // useEffect(() => { console.log(cards) }, [cards]);
+
+    // useEffect(() => {
+    //   // localStorage.setItem('Cards', JSON.stringify(cards));
+    //   // let expireDate = new Date();
+    //   // expireDate.setTime(expireDate.getTime() + 8 * 24 * 60 * 60 * 1000);
+    //   if(!readSession){
+    //     localStorage.setItem('CardList', JSON.stringify(cards));
+    //     // console.log('session update(?)')
+    //   }
+    // }, [cards])
+
+    const moveCard = (dragIndex, hoverIndex) => {
       setCards((prevCards) =>
         update(prevCards, {
           $splice: [
@@ -59,18 +52,19 @@ const Container = () => {
         }),
       )
       setUpdateList(true);
-    }, [])
-    const renderCard = useCallback((card, index) => {
+    }
+
+    const renderCard = (card, index) => {
       return (
         <Card
           key={card.id}
           index={index}
           id={card.id}
-          text={card.text}
+          text={card.name}
           moveCard={moveCard}
         />
       )
-    }, [])
+    }
     return (
       <>
         <div className="w-full md:w-3/4 lg:w-1/2 m-auto mt-2">{cards?.map((card, i) => renderCard(card, i))}</div>
