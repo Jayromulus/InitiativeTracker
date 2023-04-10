@@ -1,8 +1,12 @@
-import { useRef } from 'react'
-import { useDrag, useDrop } from 'react-dnd'
+import Image from 'next/image';
+import { useRef } from 'react';
+import { useDrag, useDrop } from 'react-dnd';
+import moveArrow from '../assets/move-arrows.png';
+
 let ItemTypes = {
   CARD: 'card',
 }
+
 const style = {
   // border: '1px dashed gray',
   padding: '0.5rem 1rem',
@@ -60,6 +64,7 @@ const Card = ({ id, text, index, moveCard }) => {
       item.index = hoverIndex
     },
   })
+
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.CARD,
     item: () => {
@@ -70,18 +75,21 @@ const Card = ({ id, text, index, moveCard }) => {
       isDragging: monitor.isDragging(),
     }),
   })
+
   const opacity = isDragging ? 0 : 1
   drag(drop(ref))
+  
   return (
     <div className="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
       <div className="col-span-5">
         {text}
       </div>
-      <div className="flex  col-span-1 pt-0.5">
-        <div className="space-y-2 ml-auto">
+      <div className="flex  col-span-1 pb-0.5">
+        <div className="align-middle ml-auto">
+          {/* <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
           <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span> */}
+          <Image src={moveArrow} style={{ height: '1.5rem', width: '1.5rem' }} alt="move"></Image>
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ const baseCards = [
   },
   {
     id: 6,
-    name: 'John'
+    name: 'Jon'
   },
   {
     id: 7,
@@ -92,7 +92,7 @@ const Index = () => {
       }
     `}</style> */}
     <div>
-      <Header></Header>
+      <Header cards={cards}></Header>
       <Container cards={cards} setCards={setCards} setUpdateList={setUpdateList}></Container>
       {/* <footer className="absolute bottom-px">
       <a style={{color: 'gray'}} target="_blank" href="https://www.flaticon.com/free-icons/add" title="add icons">icons used from- Flaticon</a>
