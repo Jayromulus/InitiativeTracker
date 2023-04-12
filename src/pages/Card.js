@@ -13,10 +13,10 @@ const style = {
   marginBottom: '.5rem',
   backgroundColor: 'white',
   color: 'black',
-  cursor: 'move',
+  // cursor: 'move',
 }
 
-const Card = ({ id, text, index, moveCard }) => {
+const Card = ({ id, text, initiative, index, moveCard }) => {
   const ref = useRef(null)
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.CARD,
@@ -76,22 +76,26 @@ const Card = ({ id, text, index, moveCard }) => {
     }),
   })
 
-  const opacity = isDragging ? 0 : 1
+  const opacity = isDragging ? 0.85 : 1
   drag(drop(ref))
-  
+
   return (
     <div className="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
+      {/* <div className="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}> */}
       <div className="col-span-5">
         {text}
       </div>
-      <div className="flex  col-span-1 pb-0.5">
+      <div className="col-span-1 text-right">
+        {initiative}
+      </div>
+      {/* <div className="flex  col-span-1 pb-0.5">
         <div className="align-middle ml-auto">
-          {/* <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
           <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span> */}
+          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
+          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
           <Image src={moveArrow} style={{ height: '1.5rem', width: '1.5rem' }} alt="move"></Image>
         </div>
-      </div>
+      </div>*/}
     </div>
   )
 }
