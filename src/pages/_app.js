@@ -1,11 +1,12 @@
 import '@/styles/globals.css'
 import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
+import { MultiBackend } from 'react-dnd-multi-backend'
+import { HTML5toTouch } from 'rdndmb-html5-to-touch' // or any other pipeline
 
 export default function App({ Component, pageProps }) {
   return (
   <>
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={MultiBackend} options={HTML5toTouch}>
       <Component {...pageProps} />
     </DndProvider>
   </>

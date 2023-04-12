@@ -31,6 +31,7 @@ export default function Modal({ manageUser, users, updateCardList }) {
         (
         <>
           <div
+            style={{opacity:  showModal ? '1' : '0' }}
             className="bg-violet-700 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
