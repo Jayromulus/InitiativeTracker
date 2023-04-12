@@ -31,7 +31,7 @@ export default function Modal({ manageUser, users, updateCardList }) {
         (
         <>
           <div
-            style={{opacity:  showModal ? '1' : '0' }}
+            style={{opacity:  showModal ? "1" : "0" }}
             className="bg-violet-700 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
@@ -42,12 +42,12 @@ export default function Modal({ manageUser, users, updateCardList }) {
                   {/* REPLACE BELOW:
                     list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
                   */}
-                  <p className="text-white my-4 overflow-y-scroll text-lg leading-relaxed" style={{ height: '36rem' }}>
-                    list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
-                    list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
-                    list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
-                    list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
-                    list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
+                  <p className="text-white my-4 overflow-y-scroll text-lg leading-relaxed" style={{ height: "36rem" }}>
+                    list out each individual and have an option to delete them from the list or edit their initiative value, bottom of the modal has a button to sort the list by initiative value and also a  button to add a new user with some inputs for name and initiative value. only sort when the button to sort is pressed
+                    list out each individual and have an option to delete them from the list or edit their initiative value, bottom of the modal has a button to sort the list by initiative value and also a  button to add a new user with some inputs for name and initiative value. only sort when the button to sort is pressed
+                    list out each individual and have an option to delete them from the list or edit their initiative value, bottom of the modal has a button to sort the list by initiative value and also a  button to add a new user with some inputs for name and initiative value. only sort when the button to sort is pressed
+                    list out each individual and have an option to delete them from the list or edit their initiative value, bottom of the modal has a button to sort the list by initiative value and also a  button to add a new user with some inputs for name and initiative value. only sort when the button to sort is pressed
+                    list out each individual and have an option to delete them from the list or edit their initiative value, bottom of the modal has a button to sort the list by initiative value and also a  button to add a new user with some inputs for name and initiative value. only sort when the button to sort is pressed
                   </p>
                 </div>
                 {/*footer*/}
