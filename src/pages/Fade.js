@@ -16,6 +16,7 @@ const Fade = ({ show, children }) => {
       <div
         className={ show ? 'modalFadeIn' : 'modalFadeOut' }
         onAnimationEnd={onAnimationEnd}
+        style={{ position: 'absolute' }}
       >
         {children}
       </div>

@@ -80,22 +80,13 @@ const Card = ({ id, text, initiative, index, moveCard }) => {
   drag(drop(ref))
 
   return (
-    <div className="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
-      {/* <div className="grid grid-flow-dense grid-cols-6" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}> */}
-      <div className="col-span-5">
+    <div className="grid grid-flow-dense grid-cols-6 text-3xl lg:text-2xl rounded" ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
+      <div className="col-span-5 p-2">
         {text}
       </div>
-      <div className="col-span-1 text-right">
+      <div className="col-span-1 p-2 text-right">
         {initiative}
       </div>
-      {/* <div className="flex  col-span-1 pb-0.5">
-        <div className="align-middle ml-auto">
-          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
-          <span className="block w-8 h-0.5 rounded bg-gray-600 opacity-80"></span>
-          <Image src={moveArrow} style={{ height: '1.5rem', width: '1.5rem' }} alt="move"></Image>
-        </div>
-      </div>*/}
     </div>
   )
 }
