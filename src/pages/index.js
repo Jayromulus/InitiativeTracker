@@ -12,7 +12,7 @@ const baseCards = [
   {
     id: 2,
     name: 'Tom',
-    initiative: 15
+    initiative: 8
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const baseCards = [
   {
     id: 5,
     name: 'Leland',
-    initiative: 8
+    initiative: 16
   },
   {
     id: 6,
@@ -42,7 +42,7 @@ const baseCards = [
   {
     id: 8,
     name: 'Brian (DM)',
-    initiative: 14
+    initiative: 13
   },
 ];
 
@@ -52,6 +52,7 @@ const Index = () => {
   const [readSession, setReadSession] = useState(true);
 
   const readSessionData = () => {
+    localStorage.setItem('CardList', []);
     if (readSession) {
       let cookie = localStorage.getItem('CardList');
       // console.log('cookie', cookie !== 'undefined');

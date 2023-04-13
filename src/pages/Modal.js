@@ -44,24 +44,31 @@ export default function Modal({ manageUser, users, updateCardList }) {
                 {/* REPLACE BELOW:
                     list out each individual and have an option to delete them from the list or edit their "initiative value", bottom of the modal has a button to sort the list by "initiative value" and also a  button to add a new user with some inputs for name and "initiative value". only sort when the button to sort is pressed
                   */}
-                <p className="text-white overflow-y-scroll text-lg leading-relaxed" style={{ height: "70vh", width: '90vw', maxWidth: '42rem' }}>
+                <div className="text-white overflow-y-scroll text-lg leading-relaxed" style={{ height: "70vh", width: '90vw', maxWidth: '42rem' }}>
                   {
                     // list out each initiative as a row, with a name, initiative, and delete button. edit buttons next to name and initiative. 7 cols: 4 for name, 2 for initiative, 1 for delete
                     users?.map((player, index) => {
                       return (
-                        <div className="grid grid-cols-7 w-full bg-white text-black my-2 rounded p-3 pt-6 text-xl" key={index}>
-                          <div className="col-span-4 flex pl-2">{player.name}
-                            <span className="pl-3">
-                              <Image className="object-contain" src={change} style={{ maxWidth: '1.75rem' }} alt="add user"></Image>
-                            </span>
+                        <div className="grid grid-cols-4 md:grid-cols-7 w-full bg-white text-black my-2 rounded p-3 pt-6 md:text-xl text-lg text-justify" key={index}>
+                          <div className="col-span-2 md:col-span-4 grid grid-cols-4 pt-4 pl-3">
+                            <div className="text-left col-span-3">
+                              {player.name}
+                            </div>
+                            <div className="flex ml-auto">
+                              <Image className="object-contain mb-7" src={change} style={{ maxWidth: '1.75rem' }} alt="add user"></Image>
+                            </div>
                           </div>
-                          <div className="col-span-2">{player.initiative}
-                            <span className="">
-                              <Image className="object-contain" src={change} style={{ maxWidth: '1.75rem' }} alt="add user"></Image>
-                            </span></div>
-                          <div className="col-span-1">
+                          <div className="md:col-span-2 grid grid-cols-2 pt-4 pl-5">
+                            <div className="text-right">
+                              {player.initiative}
+                            </div>
+                            <div className="flex ml-auto p-auto">
+                              <Image className="object-contain mb-7" src={change} style={{ maxWidth: '1.75rem' }} alt="add user"></Image>
+                            </div>
+                          </div>
+                          <div className="md:col-span-1">
                             <button
-                              className="bg-red-500 text-white active:bg-red-600 font-bold uppercase p-4 text-sm rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              className="flex bg-red-500 text-white active:bg-red-600 font-bold uppercase p-4 text-sm rounded shadow hover:shadow-lg outline-none focus:outline-none mb-2 ease-linear transition-all duration-150 ml-auto mr-3"
                               type="button"
                               onClick={() => setShowModal(false)}
                             >
@@ -73,7 +80,7 @@ export default function Modal({ manageUser, users, updateCardList }) {
                     })
                   }
 
-                </p>
+                </div>
               </div>
               {/*footer*/}
               <div className="grid grid-cols-3 items-center justify-end p-6 pt-1">
