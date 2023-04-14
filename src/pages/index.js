@@ -50,6 +50,7 @@ const Index = () => {
   const [cards, setCards] = useState()
   const [updateList, setUpdateList] = useState(false);
   const [readSession, setReadSession] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const readSessionData = () => {
     localStorage.setItem('CardList', []);
@@ -87,9 +88,11 @@ const Index = () => {
 
   return (
     <>
-    <div className="bg-violet-400 h-screen">
-      <Header updateCardList={updateCardList} cards={cards}></Header>
-      <Container cards={cards} setCards={setCards} setUpdateList={setUpdateList}></Container>
+    <div className={`${showModal ? "bg-violet-700" : "bg-violet-400"} h-screen`}>
+      <Header updateCardList={updateCardList} cards={cards} showModal={showModal} setShowModal={setShowModal}></Header>
+      {
+        !showModal ? <Container cards={cards} setCards={setCards} setUpdateList={setUpdateList}></Container> : null
+      }
       {/* <footer className="absolute bottom-px">
       <a style={{color: 'gray'}} target="_blank" href="https://www.flaticon.com/free-icons/add" title="add icons">icons used from- Flaticon</a>
       </footer> */}
