@@ -32,7 +32,7 @@ const Container = ({ cards, setCards, setUpdateList }) => {
       <>
         {
           cards?.length > 0 ?
-            <div className="w-full md:w-3/4 lg:w-1/2 m-auto mt-2">{cards?.map((card, i) => renderCard(card, i))}</div>
+            <div className="w-11/12 md:w-full md:w-3/4 lg:w-1/2 mr-auto mt-2">{cards?.map((card, i) => renderCard(card, i))}</div>
             : null
         }
       </>

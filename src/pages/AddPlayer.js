@@ -18,7 +18,6 @@ export default function AddPlayer({ users, updateCardList, showAddPlayer, setSho
       initiative: parseInt(newInitiative) ? parseInt(newInitiative) : newInitiative
     };
     
-    // console.log(newPlayer)
     updateCardList([...users, newPlayer]);
     setShowAddPlayer(false);
   }

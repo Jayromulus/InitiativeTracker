@@ -22,7 +22,8 @@ export default function Modal({ manageUser, users, updateCardList, showModal, se
 
   const clearPlayerList = () => {
     updateCardList([]);
-    setShowModal(false);
+    // are you sure you want to close list????
+    // setShowModal(false);
   };
 
   const removeUser = (index) => {

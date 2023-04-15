@@ -11,7 +11,8 @@ import Modal from './Modal';
 const Header = ({ cards, updateCardList, showModal, setShowModal }) => {
   const organizeByInitiative = () => {
     let tempList = [...cards];
-    tempList.sort((a, b) => a.initiative < b.initiative);
+    tempList.sort((a, b) =>  a.initiative > b.initiative ? -1 : a.initiative === b.initiative ? (a.name > b.name ? 1 : -1) : 1);
+    updateCardList([]);
     updateCardList(tempList);
     setShowModal(false);
   };

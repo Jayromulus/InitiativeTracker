@@ -6,44 +6,44 @@ import Header from './Header.js';
 const baseCards = [
   {
     id: 1,
-    name: 'Jerry',
-    initiative: 1
+    name: 'Mortimer',
+    initiative: 5
   },
   {
     id: 2,
-    name: 'Tom',
-    initiative: 8
+    name: 'Mara',
+    initiative: 20
   },
   {
     id: 3,
-    name: 'James',
-    initiative: 18
+    name: 'Hamish',
+    initiative: 8
   },
   {
     id: 4,
-    name: 'Marcus',
-    initiative: 23
+    name: 'Merlin',
+    initiative: 17
   },
   {
     id: 5,
-    name: 'Leland',
-    initiative: 16
+    name: 'Draven',
+    initiative: 22
   },
   {
     id: 6,
-    name: 'Jon',
-    initiative: 26
+    name: 'S\'kokado',
+    initiative: 19
   },
   {
     id: 7,
-    name: 'Adam',
+    name: 'Wyatt',
     initiative: 19
   },
   {
     id: 8,
     name: 'Brian (DM)',
     initiative: 13
-  },
+  }
 ];
 
 const Index = () => {
@@ -89,7 +89,7 @@ const Index = () => {
   return (
     <>
     <div className={`${showModal ? "bg-violet-700" : "bg-violet-400"} h-screen`}>
-      <Header users={cards} updateCardList={updateCardList} cards={cards} showModal={showModal} setShowModal={setShowModal}></Header>
+      <Header users={cards} updateCardList={updateCardList} cards={cards} showModal={showModal} setShowModal={setShowModal} className="sticky top-0"></Header>
       {
         !showModal ? <Container cards={cards} setCards={setCards} setUpdateList={setUpdateList}></Container> : null
       }
