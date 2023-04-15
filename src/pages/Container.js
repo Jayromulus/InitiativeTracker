@@ -30,7 +30,11 @@ const Container = ({ cards, setCards, setUpdateList }) => {
     }
     return (
       <>
-        <div className="w-full md:w-3/4 lg:w-1/2 m-auto mt-2">{cards?.map((card, i) => renderCard(card, i))}</div>
+        {
+          cards?.length > 0 ?
+            <div className="w-full md:w-3/4 lg:w-1/2 m-auto mt-2">{cards?.map((card, i) => renderCard(card, i))}</div>
+            : null
+        }
       </>
     )
   }

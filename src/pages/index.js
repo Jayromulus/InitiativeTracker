@@ -47,7 +47,7 @@ const baseCards = [
 ];
 
 const Index = () => {
-  const [cards, setCards] = useState()
+  const [cards, setCards] = useState();
   const [updateList, setUpdateList] = useState(false);
   const [readSession, setReadSession] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -71,7 +71,7 @@ const Index = () => {
   };
 
   const updateCardList = (newList) => {
-    console.log('index', newList);
+    // console.log('index', newList);
     setCards(newList);
   };
 
@@ -89,7 +89,7 @@ const Index = () => {
   return (
     <>
     <div className={`${showModal ? "bg-violet-700" : "bg-violet-400"} h-screen`}>
-      <Header updateCardList={updateCardList} cards={cards} showModal={showModal} setShowModal={setShowModal}></Header>
+      <Header users={cards} updateCardList={updateCardList} cards={cards} showModal={showModal} setShowModal={setShowModal}></Header>
       {
         !showModal ? <Container cards={cards} setCards={setCards} setUpdateList={setUpdateList}></Container> : null
       }
