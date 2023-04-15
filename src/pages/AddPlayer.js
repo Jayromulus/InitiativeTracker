@@ -13,7 +13,7 @@ export default function AddPlayer({ users, updateCardList, showAddPlayer, setSho
 
   const addNewPlayer = () => {
     const newPlayer = {
-      id: users.length,
+      id: users.length + 1,
       name: newName,
       initiative: parseInt(newInitiative) ? parseInt(newInitiative) : newInitiative
     };
